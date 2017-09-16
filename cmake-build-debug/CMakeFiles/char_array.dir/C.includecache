@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/qmtruong92/Documents/git/csc240/c/BuckyTutorial/QuanInfo.h
+
+/Users/qmtruong92/Documents/git/csc240/c/BuckyTutorial/char_array.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+QuanInfo.h
+/Users/qmtruong92/Documents/git/csc240/c/BuckyTutorial/QuanInfo.h
+
