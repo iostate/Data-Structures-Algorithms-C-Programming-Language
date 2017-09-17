@@ -38,6 +38,7 @@ void get_object(struct object_t * objectname) {
     printf("Enter the direction: ");
     scanf("%d", &user_direction);
     objectname -> direction = user_direction;
+
 }
 
 

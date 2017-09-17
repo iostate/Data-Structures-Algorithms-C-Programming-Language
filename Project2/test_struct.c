@@ -5,8 +5,8 @@
 int main() {
 
 
-    struct object_t *pointer;
-    struct object_t quan;
+    object *pointer;
+    object quan;
 
     pointer = &quan;
 
