@@ -3,18 +3,22 @@
 
 #endif
 
-#define LABEL_LEN 20;
+#define const int LABEL_LEN 20;
+
+/*void get_object(struct object_t *objectname);*/
 
 /* Problem was defining as a constant */
 
-enum object_type_t {CAR, TREE, POLICE, OBSTACLE, EMPTY};
+enum object_type_t {
+    CAR, TREE, POLICE, OBSTACLE, EMPTY
+};
 
-typedef struct object {
+typedef struct object_t {
 
-char * label;
-int xloc, yloc;
-float speed;
-int direction;
-enum object_type_t type;
+    char label[20];
+    int xloc, yloc;
+    float speed;
+    int direction;
+    enum object_type_t type;
 
-} object_t;
+} object;

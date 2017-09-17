@@ -1,28 +1,21 @@
 #include <stdio.h>
-#include"mapobject.h"
+#include "mapobject.c"
 
-void print_struct_info(struct object);
 
 int main() {
 
-    struct object quan;
-    quan.xloc = 2;
-    quan.label = "OJSOajs";
-    quan.yloc = 4;
 
-    print_struct_info(quan);
+    struct object_t *pointer;
+    struct object_t quan;
 
+    pointer = &quan;
+
+
+    get_object(pointer);
+
+    print_struct_info(pointer);
 
     return 0;
 }
 
-/*Print the information for a structure of type object*/
-void print_struct_info(struct object name) {
-
-    printf("%s Information: \n", name.label);
-    printf("xloc = %d \n", name.xloc);
-    printf("yloc = %d \n", name.yloc);
-    printf("speed = %f \n", name.speed);
-    printf("direction = %d \n", name.direction);
-}
 
