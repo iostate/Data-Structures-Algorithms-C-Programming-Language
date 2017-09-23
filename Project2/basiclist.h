@@ -4,8 +4,8 @@
 #define _BASICLIST_H_
 
 typedef struct node {
-  void * data;
-  struct node * next;
+    void * data;
+    struct node * next;
 } node_t;
 
 int list_add(void * data, node_t ** list);
