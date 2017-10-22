@@ -1,15 +1,16 @@
 #include<stdio.h>
+#include <string.h>
 
-#define BUFFER 85
+#define BUFFLEN 85
 
 int main ()
 {
   FILE *fp;
-  char buffer[BUFFER];
+  char buffer[BUFFLEN];
 
   fp = fopen("test.txt", "r");  /* modes: "r", "w", "a" */
 
-  while ( fgets(buffer, BUFFER, fp))  {
+  while ( fgets(buffer, BUFFLEN, fp))  {
     if (strncmp(buffer,  "Part 2", 6) == 0)
       printf("C is my favorite!\n");
     else
@@ -17,4 +18,7 @@ int main ()
   }
 
   fclose(fp);
+
+
+  return 0;
 }

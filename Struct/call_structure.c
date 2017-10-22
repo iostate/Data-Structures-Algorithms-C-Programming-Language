@@ -11,9 +11,5 @@ int main() {
     quan.age=25;
     strcpy(quan.city, city);
     printf("%d %s", quan.age, quan.city);
-
-
-
-
     return 0;
 }
