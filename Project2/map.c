@@ -9,7 +9,7 @@ int width;
 int height;
 
 void add_to_map(int x, int y, char value) {
-    map[(y * width) + x] = value;
+   map[(y * width) + x] = value;
 }
 
 void add_objects_to_map(const node_t * list)
@@ -18,14 +18,14 @@ void add_objects_to_map(const node_t * list)
     object_t * object;
     curr = list;
 
-    while (curr != NULL)
+    while (curr != NULL) 
     {
-        object = (object_t *) curr->data;
-        add_to_map(
-                object->xloc,
-                object->yloc,
-                object->type);
-        curr = curr->next;
+      object = (object_t *) curr->data;
+      add_to_map(
+              object->xloc,
+              object->yloc,
+              object->type);
+      curr = curr->next;
     }
 }
 
@@ -35,8 +35,8 @@ void new_map(const node_t * list, int x, int y) {
     width = x;
     height = y;
     map = malloc(sizeof(int) * width * height);
-    for (rr=0;rr<height;rr++)
-        for (cc=0;cc<width;cc++)
+    for (rr=0;rr<height;rr++) 
+        for (cc=0;cc<width;cc++) 
             map[(rr * width) + cc] = ' ';
     add_objects_to_map(list);
 }
@@ -45,6 +45,7 @@ void new_map(const node_t * list, int x, int y) {
 void print_map() {
     int rr, cc;
     char output;
+
     printf("Printing map:\n");
     for (rr=0;rr<height;rr++)  {
         for (cc=0;cc<width;cc++)  {

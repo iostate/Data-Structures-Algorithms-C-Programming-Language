@@ -4,12 +4,12 @@
 #include "basiclist.h"
 
 int list_add(void * data, node_t ** list) {
-    int ret = 0;
-    node_t * newnode = (node_t *) malloc(sizeof(node_t));
-    newnode->data = data;
-    newnode->next = *list;
-    *list = newnode;
-    return ret;
+  int ret = 0;
+  node_t * newnode = (node_t *) malloc(sizeof(node_t));
+  newnode->data = data; 
+  newnode->next = *list;
+  *list = newnode;
+  return ret;
 }
 
 #ifdef TEST
@@ -26,7 +26,7 @@ int main (void)
       *new_int = ii * 10;
       list_add(new_int, &list1);
     }
-
+  
   ii = 0;
   curr = list1;
   while (curr != NULL) {

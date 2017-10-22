@@ -1,71 +1,62 @@
-#include "mapobject.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "mapobject.h"
 
+void get_object(struct object_t * name);
+void print_struct_info(struct object_t * name);
 /**
- * Convert a string (character array) to an enum type.
+ * Prompts the user for information, and then places that information inside the object.
  *
- * @param user_input_for_enum char * User input that will be converted to an enum
- * @return object_type_t Enumerated type for the object_t
+ * @param objectname object_t The object whose data will be filled.
  */
-object_type_t string_to_type(char *user_input_for_enum) {
-    object_type_t result;
-    if (strncmp(user_input_for_enum, "car", LABEL_LEN) == 0) {
-        result = CAR;
-    } else if (strncmp(user_input_for_enum, "tree", LABEL_LEN) == 0) {
-        result = TREE;
-    } else if (strncmp(user_input_for_enum, "police", LABEL_LEN) == 0) {
-        result = POLICE;
-    } else if (strncmp(user_input_for_enum, "obstacle", LABEL_LEN) == 0) {
-        result = OBSTACLE;
-    } else if (strncmp(user_input_for_enum, "empty", LABEL_LEN) == 0) {
-        result = EMPTY;
-    }
-    return result;
+void get_object(struct object_t * objectname) {
+    int user_xloc, user_yloc, user_direction;
+    char user_label[50];
+    float user_speed;
+
+
+
+
+    printf("Enter the label: ");
+    fgets(user_label, sizeof(user_label), stdin);
+    strcpy(objectname->label, &user_label);
+
+    printf("Enter the xloc: ");
+    scanf("%d", &user_xloc);
+
+    objectname -> xloc = user_xloc;
+
+    printf("Enter the yloc: ");
+    scanf("%d", &user_yloc);
+    objectname -> yloc = user_yloc;
+
+    printf("Enter the speed (double): ");
+    scanf("%f", &user_speed);
+    objectname -> speed = user_speed;
+
+    printf("Enter the direction: ");
+    scanf("%d", &user_direction);
+    objectname -> direction = user_direction;
+
 }
+
+
 
 /**
- * Convert the enum type to a string representation
- * @param name Type of object
- * @return char * string representation of the enum type
+ * Print the information of an object.
+ *
+ * @param name object_t The object whose information will be displayed.
  */
-char *type_to_string(object_type_t name) {
-    char *result;
-    if (name == CAR) {
-        result = "car";
-    } else if (name == TREE) {
-        result = "tree";
-    } else if (name == POLICE) {
-        result = "police";
-    } else if (name == OBSTACLE) {
-        result = "obstacle";
-    } else {
-        result = "empty";
-    }
-    return result;
+void print_struct_info(struct object_t * name) {
+
+    printf("%s Information: \n", name->label);
+    printf("xloc = %d \n", name->xloc);
+    printf("yloc = %d \n", name->yloc);
+    printf("speed = %f \n", name->speed);
+    printf("direction = %d \n", name->direction);
 }
 
-/**
- * Return a one character representation of an object type.
- * @param type object_type_t Type of the object
- * @return char One character map representation of that object
- */
-char get_map_representation(object_type_t type) {
-    if(type == CAR) {
-        return 'X';
-    } else if (type == TREE) {
-        return 'T';
-    } else if (type == POLICE) {
-        return 'P';
-    } else if (type == OBSTACLE) {
-        return 'O';
-    } else if (type == EMPTY) {
-        return ' ';
-    }
-
-
-}
 
 
 /*
@@ -77,7 +68,7 @@ char get_map_representation(object_type_t type) {
  * symbol, -> ,  to direct the value to the member.
  *
  * 3) Multiple header files. Solution: Ensure that all files are linked, but do not overinclude links to a file.
- * 4) Problem either printing, or assigning enum type as a char. 
+ *
  *
  *
  */
